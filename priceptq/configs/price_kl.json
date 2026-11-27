@@ -1,0 +1,31 @@
+{
+  "models": {
+    "opt-125m": "facebook/opt-125m",
+    "qwen3-0.6b": "Qwen/Qwen3-0.6B"
+  },
+  "protocol": {
+    "num_samples": 128,
+    "max_seqlen": 1024,
+    "batch_size": 2,
+    "seed": 0,
+    "num_hessian_probes": 8,
+    "num_layer_pairs": 788,
+    "constraints": [
+      "none",
+      "vol-preserving",
+      "trace-preserving",
+      "frobenius"
+    ],
+    "weight_quant_types": [
+      "int8",
+      "int4",
+      "fp8",
+      "fp4"
+    ],
+    "weight_granularities": [
+      "per-channel",
+      "per-tensor"
+    ],
+    "pair_rng_stride": 8
+  }
+}

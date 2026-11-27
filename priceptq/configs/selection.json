@@ -1,0 +1,61 @@
+{
+  "models": {
+    "llama-1b": {
+      "name": "Llama-3.2-1B",
+      "hf_id": "meta-llama/Llama-3.2-1B",
+      "revision": "4e20de362430cd3b72f300e6b0f18e50e7166e08",
+      "layers": 112,
+      "statistics_batch_size": 8
+    },
+    "llama-8b": {
+      "name": "Llama-3.1-8B",
+      "hf_id": "meta-llama/Llama-3.1-8B",
+      "revision": "d04e592bb4f6aa9cfee91e2e20afa771667e1d4b",
+      "layers": 224,
+      "statistics_batch_size": 3
+    },
+    "llama-3b": {
+      "name": "Llama-3.2-3B",
+      "hf_id": "meta-llama/Llama-3.2-3B",
+      "revision": "13afe5124825b4f3751f836b40dafda64c1ed062",
+      "layers": 196,
+      "statistics_batch_size": 6
+    }
+  },
+  "protocol": {
+    "dataset": "Salesforce/wikitext",
+    "config": "wikitext-2-raw-v1",
+    "split": "validation",
+    "num_samples": 32,
+    "max_seqlen": 512,
+    "seed": 0,
+    "max_price_tokens": 512,
+    "bitwidth_candidates": [
+      2,
+      3,
+      4
+    ],
+    "target_bits": 3.0,
+    "target_bits_offset": 0.005,
+    "group_size": 128,
+    "selection_weight_bits": 4,
+    "random_seeds": [
+      0,
+      1,
+      2
+    ]
+  },
+  "amq": {
+    "predictor": "rbf",
+    "iterations": 200,
+    "n_doe": 250,
+    "n_iter": 50,
+    "max_value": 1.0,
+    "subset_pop_size": 100,
+    "ga_pop_size": 200,
+    "crossover_prob": 0.9,
+    "mut_prob": 0.1,
+    "save_iter": 1,
+    "sensitivity_threshold": 2.0
+  }
+}

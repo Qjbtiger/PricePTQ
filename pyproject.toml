@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools==80.10.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "neurips26-priceptq"
+version = "0.1.0"
+description = "Main-paper PricePTQ experiments and configuration-selection timing"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "torch==2.9.0",
+    "transformers==4.57.6",
+    "datasets==3.6.0",
+    "accelerate==1.13.0",
+    "numpy==2.2.6",
+    "scipy==1.17.1",
+    "tqdm==4.67.1",
+]
+
+[project.optional-dependencies]
+# Compatibility shim providing `imp` for pySOT/pyDOE2 on Python 3.12.
+amq = ["hqq==0.2.8.post1", "pymoo==0.6.2", "pySOT==0.3.3", "scikit-learn==1.9.0", "zombie-imp==0.0.4"]
+
+[project.scripts]
+priceptq-select = "priceptq.experiments.selection:main"
+priceptq-price-kl = "priceptq.experiments.price_kl:main"
+
+[tool.setuptools.packages.find]
+include = ["priceptq*"]
+
+[tool.setuptools.package-data]
+priceptq = ["configs/*.json", "vendor/amq/LICENSE"]
+
